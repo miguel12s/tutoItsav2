@@ -1,0 +1,47 @@
+ <nav class="navbar navbar-expand-md  ">
+  <div class="container-fluid ">
+    <a class="navbar-brand d-flex  p-0"  >
+      <img
+      class="img-fluid"
+        src="https://www.unibarranquilla.edu.co/images/logo.png"
+        alt="Bootstrap"
+        
+        style="margin-left: 14px;"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class=" justify-content-end collapse navbar-collapse  " 
+      id="navbarNav"
+    >
+      <ul class="navbar-nav gap-1 ">
+        <li class="nav-item">
+          <a  class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link active" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-center" routerLink="/login">Inicia Sesion</a>
+        </li>
+        <li >
+          <a  class="  btn btn-warning text-center">Registrate</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+<router-outlet></router-outlet>
