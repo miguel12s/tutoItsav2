@@ -9,26 +9,26 @@ import {tap} from "rxjs"
 })
 export class AppComponent implements OnInit {
   title = 'tutoriasItsa';
-  data=''
-  li=document.getElementsByClassName('.active')
+  data=""
+  public programas:string[]=[]
+
 constructor(private readonly httpClient:HttpClient,private api:ApiService){}
 
 
 
   ngOnInit(): void {
-    console.log('entras');
+  
     
-  // //  this.api.getData().pipe(
-  // //   tap((res:any)=>{
-  // //     this.data=res
-      
-  // //   })
-  //  ).subscribe()
+ this.api.getData().pipe(
+    tap((res:any)=>{
+      this.data=res
+    })
+  ).subscribe()
   }
 
   eventToRedirect():void{
 alert('hola')
-console.log(this.li);
+
 
   }
 

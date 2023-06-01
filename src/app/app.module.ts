@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ApiService } from './services/api.service';
 import { LoginComponent } from './components/pages/login/login.component';
+import { RegistroComponent } from './components/pages/registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -38,10 +38,24 @@
           <a class="nav-link active text-center" routerLink="/login">Inicia Sesion</a>
         </li>
         <li >
-          <a  class="  btn btn-warning text-center">Registrate</a>
+          <a  class="  btn btn-warning text-center" routerLink="registro">Registrate</a>
         </li>
       </ul>
     </div>
   </div>
 </nav> 
+<div class="container">
+  <p *ngIf="programas.length===0">
+    no hay programas
+  </p>
+   <p *ngFor="let program of programas;let index">
+  {{program}} 
+  hola
+  
+   </p>
+   {{data}}
+
+
+</div>
+
 <router-outlet></router-outlet>
