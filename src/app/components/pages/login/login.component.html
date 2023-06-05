@@ -1,23 +1,28 @@
 
 <div class="container-form">
     <form class="form" >
+        <div class="container-img">
+        <img src="https://www.unibarranquilla.edu.co/images/logo.png" alt="logo unibarranquilla" class="img-fluid">
+    </div>
         <div class="form-group">
-            <label for="correo">Correo
+            <label for="correo">Correo</label>
 
-                <input type="email" class="form-control" name="correo" id="correo">
+                <input type="email" class="form-control" name="correo" id="correo" placeholder="Email">
 
-            </label>
+            
         </div>
         <div class="form-group">
-            <label for="contraseña">Contraseña
+            <label for="contraseña">Contraseña</label>
 
-                <input type="password" class="form-control" name="password" id="password">
-
-            </label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+<a routerLink="forgot" class="forgot" >Olvidastes tu contraseña</a>
+            
         </div>
 
-        <div class="container">
-            <button type="submit" class="btn btn-primary">Enviar</button>
+        <div class="form-button">
+            <button type="submit" class="btn btn-primary">Login</button>
+
         </div>
+        
     </form>
 </div>

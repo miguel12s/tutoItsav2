@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
 import {tap} from "rxjs"
+import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,20 +11,27 @@ import {tap} from "rxjs"
 export class AppComponent implements OnInit {
   title = 'tutoriasItsa';
   data=""
+  public showNavbar=true
   public programas:string[]=[]
 
-constructor(private readonly httpClient:HttpClient,private api:ApiService){}
+constructor(private readonly httpClient:HttpClient,private api:ApiService,private router:Router){}
 
 
 
   ngOnInit(): void {
   
-    
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Verificar la ruta actual y ocultar el navbar si es necesario
+        this.showNavbar = !event.url.includes('/login')}
+      })
  this.api.getData().pipe(
     tap((res:any)=>{
       this.data=res
     })
   ).subscribe()
+
+
   }
 
   eventToRedirect():void{
