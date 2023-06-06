@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'tutoriasItsa';
   data=""
   public showNavbar=true
-  public programas:string[]=[]
+  public rutas:string[]=['/login','/registro']
 
 constructor(private readonly httpClient:HttpClient,private api:ApiService,private router:Router){}
 
@@ -23,7 +23,9 @@ constructor(private readonly httpClient:HttpClient,private api:ApiService,privat
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // Verificar la ruta actual y ocultar el navbar si es necesario
-        this.showNavbar = !event.url.includes('/login')}
+        this.showNavbar=  !this.rutas.includes(event.url)
+      
+      }
       })
  this.api.getData().pipe(
     tap((res:any)=>{
