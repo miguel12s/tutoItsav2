@@ -12,8 +12,8 @@ showAlert=false
 constructor(public fb:FormBuilder){
 
   this.contactForm=fb.group({
-    email:['',Validators.email],
-    password:['',Validators.required]
+    email:['',Validators.email,],
+    password:['',Validators.required,Validators.min(60)]
   })
 
 }
