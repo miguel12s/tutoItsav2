@@ -13,82 +13,98 @@
                 <div class="form-group">
 
                     <label for="nombre">Nombres</label>
-                    <input required class="form-control"  
-                    formControlName="nombres" 
-                    [ngClass]="{'is-invalid':submitted && contactForm.get('nombres')?.errors}  "
-                    
-                    type="text" name="nombre" id="nombre"
-                       autocomplete="off">
+                    <input required class="form-control" formControlName="nombres"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('nombres')?.errors}  " type="text"
+                        name="nombre" id="nombre" autocomplete="off">
 
                 </div>
+                <span class="text-danger" *ngIf="submitted && contactForm.get('nombres')?.errors">no ha cumplido el minimo de caracteres</span>
+
+                
                 <div class="form-group">
                     <label for="apellido">Apellidos</label>
-                    <input class="form-control" type="text" name="apellido" id="apellido" formControlName="apellidos" [ngClass]="{'is-invalid':submitted && contactForm.get('nombres')?.errors}  "
-                        required>
+                    <input class="form-control" type="text" name="apellido" id="apellido" formControlName="apellidos"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('apellidos')?.errors}  " required>
 
                 </div>
+                <span class="text-danger" *ngIf="submitted && contactForm.get('apellidos')?.errors">no ha cumplido el minimo de caracteres</span>
+
 
                 <div class="form-group">
                     <label for="tipo">Tipo de documento</label>
-                    <select name="tipo" formControlName="tipoDocumento" id="tipo" class="form-control"[ngClass]="{'is-invalid':submitted && contactForm.get('tipoDocumento')?.errors}  ">
-                        <option value="tarjeta_identidad">Tarjeta de identidad</option>
-                        <option value="cedula_ciudadania">Cedula de ciudadania</option>
+                    <select name="tipo" formControlName="tipoDocumento" id="tipo" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('tipoDocumento')?.errors}  ">
+                        <option selected>Tarjeta de identidad</option>
+                        <option  >Cedula de ciudadania</option>
                     </select>
+                    <span class="text-danger" *ngIf="submitted && contactForm.get('tipoDocumento')?.errors">no ha cumplido el minimo de caracteres</span>
 
                 </div>
                 <div class="form-group">
                     <label for="contraseña">Contraseña</label>
                     <input class="form-control" type="text" name="contraseña" id="contraseña" #password
-                        formControlName="contraseña" [ngClass]="{'is-invalid':submitted && contactForm.get('contraseña')?.errors}  " required>
+                        formControlName="contraseña"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('contraseña')?.errors}  " required>
 
                 </div>
                 
-               
-
-</div>
-                <div class="col-md-4 mt-2">
-                    <div class="form-group">
-                        <label for="programa">Programa perteneciente</label>
-                        <select formControlName="programa" name="programa" id="programa" class="form-control"  >
-                            <option value="">tecnico profesional en mantenimiento en sistemas informaticos</option>
-                        </select>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefono">Numero de telefono</label>
-                        <input class="form-control" type="text" name="numero" formControlName="numeroTelefono"
-                            id="numero" [ngClass]="{'is-invalid':submitted && contactForm.get('numeroTelefono')?.errors}  " required>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="correo">Correo</label>
-                        <input class="form-control" type="email" name="correo" id="correo" formControlName="correo" (input)="validarCorreo()" [ngClass]="{'is-invalid':submitted && contactForm.get('correo')?.errors}  " pattern="[a-zA-Z0-9._%+-]+@unibarranquilla\.edu\.co"
-                            required>
-
-                    </div>
-                    <div class="text-danger">no cumple con el minimo de caracteres</div>
-                    <div class="form-group">
-                        <label for="contraseña">Nueva Contraseña</label>
-                        <input class="form-control"
-                         type="text" 
-                         name="contraseña"
-                          id="contraseña"
-                           #newPassword  formControlName="nuevaContraseña" 
-                           [ngClass]="{'is-invalid':submitted && contactForm.get('nuevaContraseña')?.errors}  "required>
-
-                    </div>
+         
 
 
 
-                    <div class="container-button" 
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="form-group">
+                    <label for="programa">Programa perteneciente</label>
+                    <select formControlName="programa" name="programa" id="programa" class="form-control">
+                        <option value="">tecnico profesional en mantenimiento en sistemas informaticos</option>
+                    </select>
 
-                    >
-                        <button type="submit"class="btn btn-primary ">Enviar</button>
-                    </div>
                 </div>
 
-         </form>
-     
-        </div>
-        </div>
+                <div class="form-group">
+                    <label for="telefono">Numero de telefono</label>
+                    <input class="form-control" type="number" name="numero" formControlName="numeroTelefono" id="numero"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('numeroTelefono')?.errors}  " required>
+
+                </div>
+              
+                <span class="text-danger" *ngIf="submitted && contactForm.get('numeroTelefono')?.errors?.['maxlength']">no ha cumplido el minimo de caracteres</span>
+
+               
+
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input class="form-control" type="email" name="correo" id="correo" formControlName="correo"
+                        (input)="validarCorreo()"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('correo')?.errors}  "
+                        pattern="[a-zA-Z0-9._%+-]+@unibarranquilla\.edu\.co" required>
+
+                </div>
+                <span class="text-danger" *ngIf="submitted && contactForm.get('correo')?.errors">debe terminar @unibarranquilla.edu.co</span>
+
+
+                <div class="form-group">
+                    <label for="contraseña">Confirmar Contraseña</label>
+                    <input class="form-control" type="text" name="contraseña" id="contraseña" #newPassword
+                        formControlName="nuevaContraseña"
+                        [ngClass]="{'is-invalid':submitted && contactForm.get('nuevaContraseña')?.errors}  " required>
+
+                </div>
+               
+
+
+                <span class="text-danger" *ngIf="contactForm.get('contraseña')?.value!=contactForm.get('nuevaContraseña')?.value" >las contraseñas deben coincidir y deben tener un minimo de longitud de 7</span>
+
+                <div class="container-button" >
+                    <button type="submit" class="btn btn-primary ">Enviar</button>
+                </div>
+               
+
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

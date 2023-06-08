@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
 contactForm!:FormGroup
 showAlert=false
+submitted=false
 constructor(public fb:FormBuilder){
 
   this.contactForm=fb.group({
@@ -23,6 +24,18 @@ validarInput() {
   } else {
     this.showAlert = true;
   }
+
+}
+
+onSubmit():void{
+
+  this.submitted=true
+
+  if(this.contactForm.invalid){
+    return 
+  }
+  
+
 
 }
 }

@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -12,14 +12,14 @@ export class RegistroComponent {
   submitted=false
   constructor(public fb:FormBuilder){
 this.contactForm=fb.group({
-  nombres:['',{validators:[Validators.required]}],
+  nombres:new FormControl ('',[Validators.required]),
   apellidos:['',Validators.required],
   tipoDocumento:['',Validators.required],
-  contraseña:['',Validators.required],
+  contraseña:['',[Validators.required,Validators.minLength(7)]],
   programa:['',Validators.required],
-  numeroTelefono:['',Validators.required],
+  numeroTelefono: new FormControl('',[Validators.required,Validators.minLength(2)]),
   correo:['',Validators.email],
-  nuevaContraseña:['',Validators.required
+  nuevaContraseña:['',Validators.required,Validators.minLength(7),Validators.maxLength(50)
 ],
 
 
