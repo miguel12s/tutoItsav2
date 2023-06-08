@@ -27,11 +27,11 @@ constructor(private readonly httpClient:HttpClient,private api:ApiService,privat
       
       }
       })
- this.api.getData().pipe(
-    tap((res:any)=>{
-      this.data=res
-    })
-  ).subscribe()
+//  this.api.getData().pipe(
+//     tap((res:any)=>{
+//       this.data=res
+//     })
+//   ).subscribe()
 
 
   }

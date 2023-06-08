@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { ApiService } from './services/api.service';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegistroComponent } from './components/pages/registro/registro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,11 @@ import { RegistroComponent } from './components/pages/registro/registro.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  
+   
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

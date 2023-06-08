@@ -1,28 +1,36 @@
 
 <div class="container-form">
-    <form class="form" >
+    <form class="form" [formGroup]="contactForm" autocomplete="off" >
         <div class="container-img">
         <img src="https://www.unibarranquilla.edu.co/images/logo.png" alt="logo unibarranquilla" class="img-fluid">
     </div>
         <div class="form-group">
             <label for="correo">Correo</label>
 
-                <input type="email" class="form-control" name="correo" id="correo" placeholder="Email" required>
+                <input required type="email" formControlName="email" class="form-control" name="correo" id="correo" placeholder="Email" autocomplete="off" pattern="[a-zA-Z0-9._%+-]+@unibarranquilla\.edu\.co" (input)="validarInput()" >
 
             
         </div>
+
         <div class="form-group">
             <label for="contraseña">Contraseña</label>
 
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-<a routerLink="forgot" class="forgot" >Olvidastes tu contraseña</a>
-            
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required formControlName="password" >
+              <div class="links d-flex flex-row gap-4 justify-content-center align-items-center    ">
+                    <a routerLink="forgot" class="forgot" >Olvide mi clave</a>
+                    <a routerLink="login" class="createAccount" >Crear cuenta</a>
+                </div>
+
         </div>
 
+       <div class="alert alert-danger text-center" *ngIf="showAlert ">
+        el correo no termina con @unibarranquilla.edu.co
+       </div>
         <div class="form-button">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" [disabled]="contactForm.invalid" class="btn btn-primary">Login</button>
 
         </div>
+
         
     </form>
 </div>

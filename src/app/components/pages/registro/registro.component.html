@@ -1,45 +1,50 @@
 <div class="container-main">
-    <form class="container">
-        <div class="row">
+    <div class="container">
+        <form class="row" >
             <div class="col-md-4 container-img ">
                 <div class="container-img">
-                <img src="https://www.unibarranquilla.edu.co/images/logo.png" class="img-fluid">
+                    <img src="https://www.unibarranquilla.edu.co/images/logo.png" class="img-fluid">
                 </div>
             </div>
 
-            <div class="col-md-4 mt-4">
+            <div class="col-md-4 mt-2">
 
+               
+                    <div class="form-group">
 
-                <div class="form-group">
+                        <label for="nombre">Nombres</label>
+                        <input required class="form-control" type="text" name="nombre" id="nombre" autocomplete="off" >
 
-                    <label for="nombre">Nombres</label>
-                    <input class="form-control" type="text" name="nombre" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellidos</label>
+                        <input class="form-control" type="text" name="apellido" id="apellido" autocomplete="off"
+                            required>
 
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Apellidos</label>
-                    <input class="form-control" type="text" name="apellido" id="apellido" required>
+                    </div>
 
-                </div>
-                
-                <div class="form-group">
-                    <label for="tipo">Tipo de documento</label>
-                    <select name="tipo" id="tipo" class="form-control">
-                        <option value="tarjeta_identidad">Tarjeta de identidad</option>
-                        <option value="cedula_ciudadania">Cedula de ciudadania</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de documento</label>
+                        <select name="tipo" autocomplete="off" id="tipo" class="form-control">
+                            <option value="tarjeta_identidad">Tarjeta de identidad</option>
+                            <option value="cedula_ciudadania">Cedula de ciudadania</option>
+                        </select>
 
-                </div>
-                <div class="form-group">
-                    <label for="contraseña">Contraseña</label>
-                    <input class="form-control" type="password" name="contraseña" id="contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña">Contraseña</label>
+                        <input autocomplete="off" class="form-control" type="text" name="contraseña" id="contraseña"
+                            [(ngModel)]="password" required>
 
-                </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="password!==newPassword">Las contraseñas no coinciden</div>
+
             </div>
-            <div class="col-md-4 mt-4">
+         
+            <div class="col-md-4 mt-2">
                 <div class="form-group">
                     <label for="programa">Programa perteneciente</label>
-                    <select name="programa" id="programa" class="form-control">
+                    <select autocomplete="off" name="programa" id="programa" class="form-control">
                         <option value="">tecnico profesional en mantenimiento en sistemas informaticos</option>
                     </select>
 
@@ -47,29 +52,31 @@
 
                 <div class="form-group">
                     <label for="telefono">Numero de telefono</label>
-                    <input class="form-control" type="number" name="numero" id="numero" required>
+                    <input autocomplete="off" class="form-control" type="number" name="numero" id="numero" required>
 
                 </div>
                 <div class="form-group">
                     <label for="correo">Correo</label>
-                    <input class="form-control" type="email" name="correo" id="correo" required>
+                    <input class="form-control" type="email" name="correo" id="correo" autocomplete="off" required>
 
                 </div>
                 <div class="form-group">
                     <label for="contraseña">Nueva Contraseña</label>
-                    <input class="form-control" type="password" name="contraseña" id="contraseña" required>
+                    <input class="form-control" type="text" name="contraseña" id="contraseña" autocomplete="off"
+                        [(ngModel)]="newPassword" required>
 
                 </div>
+
+
+
                 <div class="container-button">
                     <button type="submit" class="btn btn-primary ">Enviar</button>
                 </div>
             </div>
-        </div>
-        
 
-    </form>
+        </form>
 
 
 
 
-</div>
+
